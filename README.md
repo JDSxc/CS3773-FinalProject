@@ -16,3 +16,11 @@ How to Clone a Repository for XAMPP (GitHub Setup)
 6. You should see a new folder named after the repository in 'htdocs'.
 7. To test, just type 'localhost/CS3773-FinalProject' in your browser's URL (make sure Apache is running).
 8. If everything was set up correctly, you should see an index page (or a homepage if we have an index file already).
+
+How to run SQL script for the database set up
+1. Ensure that Apache and MySQL are running.
+2. Type localhost/phpmyadmin into the browser.
+3. Go to Import.
+4. Click "Choose File" and select the SQL file.
+5. Scroll down and select import.
+6. After that, you are done, and the tables should be set up! You should see a database called ecommerce.
