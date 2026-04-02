@@ -30,7 +30,6 @@
    - `http://localhost/account_management/login.php`
 
 ## note about admin access
-Schema does not auto-create an admin user.
 To change an account to admin after registering, run this in phpMyAdmin:
 
 ```sql
