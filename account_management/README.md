@@ -1,6 +1,6 @@
 # PHP Account Management 
 
-## what the files are (features)
+## What the files are (features)
 - User registration
 - Login with username or email
 - Logout
@@ -11,7 +11,7 @@
   - Delete users
   - Change roles between `customer` and `admin`
 
-## folder structure
+## Folder structure
 - `config/db.php` - MySQL PDO connection (make sure to change this to match your specifics)
 - `includes/auth.php` - sessions, auth guards, helper functions
 - `register.php` - create customer account
@@ -20,7 +20,7 @@
 - `account.php` - customer profile update page
 - `admin/users.php` - admin CRUD for users
 
-## how to run in XAMPP
+## How to run in XAMPP
 1. Put the `account_management` folder inside `C:\xampp\htdocs\CS3773-FinalProject` so the project folder.
 2. Start Apache and MySQL in XAMPP.
 3. Import the SQL file into phpMyAdmin so the `ecommerce` database and tables exist.
@@ -29,7 +29,7 @@
    - `http://localhost/account_management/register.php`
    - `http://localhost/account_management/login.php`
 
-## note about admin access
+## Note about admin access
 To change an account to admin after registering, run this in phpMyAdmin:
 
 ```sql
@@ -38,14 +38,14 @@ SET user_role = 'admin'
 WHERE email = 'youremail@example.com';
 ```
 
-## security info
+## Security info
 - Prepared statements with PDO
 - Password hashing with `password_hash()` and `password_verify()`
 - Session-based authentication
 - Basic role-based access control
 - Output escaping with `htmlspecialchars()`
 
-## match schema
+## Match schema
 This code uses the existing `users` table fields:
 - `user_id`
 - `first_name`
