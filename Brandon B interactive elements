@@ -1,0 +1,224 @@
+Search Bar
+
+<input type="text" id="searchInput" placeholder="Search products..." />
+
+<script>
+let timeout;
+
+document.getElementById("searchInput").addEventListener("input", function () {
+  clearTimeout(timeout);
+
+  timeout = setTimeout(async () => {
+    const query = this.value;
+
+    const res = await fetch(`/api/products?search=${query}`);
+    const products = await res.json();
+
+    renderProducts(products);
+  }, 300); // debounce
+});
+</script>
+
+
+
+
+Filters and sorting
+
+<select id="sort">
+  <option value="">Sort</option>
+  <option value="low">Price Low → High</option>
+  <option value="high">Price High → Low</option>
+</select>
+
+<select id="availability">
+  <option value="">All</option>
+  <option value="in">In Stock</option>
+</select>
+
+<script>
+document.querySelectorAll("#sort, #availability").forEach(el => {
+  el.addEventListener("change", fetchFiltered);
+});
+
+async function fetchFiltered() {
+  const sort = document.getElementById("sort").value;
+  const availability = document.getElementById("availability").value;
+
+  const res = await fetch(`/api/products?sort=${sort}&availability=${availability}`);
+  const data = await res.json();
+
+  renderProducts(data);
+}
+</script>
+
+
+Add to cart button
+
+<button class="add-to-cart" data-id="1">Add to Cart</button>
+
+<span id="cart-count">0</span>
+
+<script>
+document.querySelectorAll(".add-to-cart").forEach(btn => {
+  btn.addEventListener("click", async () => {
+    const id = btn.dataset.id;
+
+    const res = await fetch("/api/cart/add", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({ productId: id })
+    });
+
+    const data = await res.json();
+
+    document.getElementById("cart-count").innerText = data.cartCount;
+  });
+});
+</script>
+
+
+Shopping cart
+
+<div id="cart"></div>
+
+<script>
+function renderCart(cart) {
+  const container = document.getElementById("cart");
+  container.innerHTML = "";
+
+  cart.forEach(item => {
+    container.innerHTML += `
+      <div>
+        ${item.name} - $${item.price} x 
+        <button onclick="updateQty(${item.id}, -1)">-</button>
+        ${item.qty}
+        <button onclick="updateQty(${item.id}, 1)">+</button>
+        <button onclick="removeItem(${item.id})">Remove</button>
+      </div>
+    `;
+  });
+}
+
+async function updateQty(id, change) {
+  await fetch("/api/cart/update", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({ id, change })
+  });
+
+  loadCart();
+}
+
+async function removeItem(id) {
+  await fetch("/api/cart/remove", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({ id })
+  });
+
+  loadCart();
+}
+</script>
+
+
+
+dropdown menu
+
+<div class="dropdown">
+  <button onclick="toggleMenu()">Account ▼</button>
+  <div id="menu" style="display:none;">
+    <a href="/profile">Profile</a>
+    <a href="/logout">Logout</a>
+  </div>
+</div>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("menu");
+  menu.style.display = menu.style.display === "none" ? "block" : "none";
+}
+</script>
+
+
+
+discount code input
+
+<input type="text" id="discountCode" placeholder="Enter code" />
+<button onclick="applyDiscount()">Apply</button>
+
+<p id="discountMsg"></p>
+
+<script>
+async function applyDiscount() {
+  const code = document.getElementById("discountCode").value;
+
+  const res = await fetch("/api/discount/apply", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({ code })
+  });
+
+  const data = await res.json();
+
+  document.getElementById("discountMsg").innerText =
+    data.success ? "Discount applied!" : "Invalid code";
+
+  loadCart();
+}
+</script>
+
+
+
+checkout with tax
+
+<div id="summary"></div>
+
+<script>
+function renderSummary(cart) {
+  let subtotal = 0;
+
+  cart.forEach(item => {
+    subtotal += item.price * item.qty;
+  });
+
+  const tax = subtotal * 0.0825;
+  const total = subtotal + tax;
+
+  document.getElementById("summary").innerHTML = `
+    Subtotal: $${subtotal.toFixed(2)} <br>
+    Tax (8.25%): $${tax.toFixed(2)} <br>
+    Total: $${total.toFixed(2)}
+  `;
+}
+</script>
+
+
+
+add/edit/delete products
+
+<button onclick="addProduct()">Add Product</button>
+
+<script>
+async function addProduct() {
+  const name = prompt("Product name:");
+  const price = prompt("Price:");
+
+  await fetch("/api/admin/add", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({ name, price })
+  });
+
+  alert("Product added");
+}
+
+async function deleteProduct(id) {
+  await fetch("/api/admin/delete", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({ id })
+  });
+
+  alert("Deleted");
+}
+</script>
