@@ -312,79 +312,75 @@
         <div class="sidebar-wrapper">
           <nav class="mt-2">
             <!--begin::Sidebar Menu-->
+          <ul
+            class="nav sidebar-menu flex-column"
+            data-lte-toggle="treeview"
+            role="navigation"
+            aria-label="Main navigation"
+            data-accordion="false"
+            id="navigation"
+          >
+            <!-- Home / Dashboard -->
+            <li class="nav-item menu-open">
+              <a href="./index.php" class="nav-link active">
+                <i class="nav-icon bi bi-speedometer"></i>
+                <p>Home</p>
+              </a>
+            </li>
 
-            <ul
-              class="nav sidebar-menu flex-column"
-              data-lte-toggle="treeview"
-              role="navigation"
-              aria-label="Main navigation"
-              data-accordion="false"
-              id="navigation"
-            >
-              <li class="nav-item menu-open">
-    
-                <ul class="nav nav-treeview">
+            <!-- Orders -->
+            <li class="nav-item">
+              <a href="./orders.php" class="nav-link">
+                <i class="nav-icon bi bi-card-checklist"></i>
+                <p>Orders</p>
+              </a>
+            </li>
 
-                  <!-- Home / Dashboard -->
-                  <li class="nav-item">
-                    <a href="./index3.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Home Dashboard</p>
-                    </a>
-                  </li>
-                  <!-- Orders -->
-                  <li class="nav-item">
-                    <a href="./orders.php" class="nav-link">
-                      <i class="nav-icon bi bi-card-checklist"></i>
-                      <p>Orders</p>
-                    </a>
-                  </li>
+            <!-- Products -->
+            <li class="nav-item">
+              <a href="./products.php" class="nav-link">
+                <i class="nav-icon bi bi-box-seam-fill"></i>
+                <p>Products</p>
+              </a>
+            </li>
 
-                  <!-- Products -->
-                  <li class="nav-item">
-                    <a href="./products.php" class="nav-link">
-                      <i class="nav-icon bi bi-box-seam-fill"></i>
-                      <p>Products</p>
-                    </a>
-                  </li>
+            <!-- Discounts / Marketing -->
+            <li class="nav-item">
+              <a href="./discounts.php" class="nav-link">
+                <i class="nav-icon bi bi-tag"></i>
+                <p>Discounts</p>
+              </a>
+            </li>
 
-                  <!-- Discounts / Marketing -->
-                  <li class="nav-item">
-                    <a href="./discounts.php" class="nav-link">
-                      <i class="nav-icon bi bi-tag"></i>
-                      <p>Discounts</p>
-                    </a>
-                  </li>
+            <!-- Customers -->
+            <li class="nav-item">
+              <a href="./customers.php" class="nav-link">
+                <i class="nav-icon bi bi-people"></i>
+                <p>Customers</p>
+              </a>
+            </li>
 
-                  <!-- Customers -->
-                  <li class="nav-item">
-                    <a href="./customers.php" class="nav-link">
-                      <i class="nav-icon bi bi-people"></i>
-                      <p>Customers</p>
-                    </a>
-                  </li>
+            <!-- Analytics -->
+            <li class="nav-item">
+              <a href="./analytics.php" class="nav-link">
+                <i class="nav-icon bi bi-graph-up"></i>
+                <p>Analytics</p>
+              </a>
+            </li>
 
-                  <!-- Analytics -->
-                  <li class="nav-item">
-                    <a href="./analytics.php" class="nav-link">
-                      <i class="nav-icon bi bi-graph-up"></i>
-                      <p>Analytics</p>
-                    </a>
-                  </li>
-
-                  <!-- Finance -->
-                  <li class="nav-item">
-                    <a href="./finance.php" class="nav-link">
-                      <i class="nav-icon bi bi-currency-dollar"></i>
-                      <p>Finance</p>
-                    </a>
-                  </li>
-
-            </ul>
+            <!-- Finance -->
+            <li class="nav-item">
+              <a href="./finance.php" class="nav-link">
+                <i class="nav-icon bi bi-currency-dollar"></i>
+                <p>Finance</p>
+              </a>
+            </li>
+          </ul>
+          <!--end::Sidebar Menu-->
+          
           </nav>
         </div>
         <!--end::Sidebar Wrapper-->
-
       </aside>
       <!--end::Sidebar-->
       <!--begin::App Main-->
