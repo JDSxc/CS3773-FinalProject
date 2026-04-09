@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Orders</title>
+
+  <!-- Styling -->
+  <link rel="stylesheet" href="./css/style.css">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 220px;
+      background: #222;
+      color: white;
+      height: 100vh;
+      padding: 20px;
+    }
+
+      .sidebar a {
+        display: block;
+        color: white;
+        text-decoration: none;
+        margin: 10px 0;
+      }
+
+    /* content */
+    .main {
+      flex: 1;
+      padding: 20px;
+    }
+
+    /* Top controls */
+    .controls {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    input, select {
+      padding: 8px;
+      font-size: 14px;
+    }
+
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background: #f4f4f4;
+    }
+
+    .view-btn {
+      color: blue;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h3>AdminLTE</h3>
+    <a href="./index3.html">Dashboard</a>
+    <a href="./orders.html"><b>Orders</b></a>
+    <a href="./products.html">Products</a>
+    <a href="./discounts.html">Discounts</a>
+    <a href="./customers.html">Customers</a>
+    <a href="./analytics.html">Analytics</a>
+    <a href="./finance.html">Finance</a>
+  </div>
+
+  <!-- Main content -->
+  <div class="main">
+    <h2>Orders</h2>
+
+    <!-- Search + filters -->
+    <div class="controls">
+      <input id="searchInput" type="text" placeholder="Search orders...">
+
+      <select id="statusFilter">
+        <option value="all">Status</option>
+        <option value="Pending">Pending</option>
+        <option value="Shipped">Shipped</option>
+        <option value="Completed">Completed</option>
+      </select>
+
+      <select id="sortBy">
+        <option value="none">Sort by</option>
+        <option value="date">Date</option>
+        <option value="total">Total</option>
+      </select>
+    </div>
+
+    <!-- Orders table -->
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Customer</th>
+          <th>Date</th>
+          <th>Items</th>
+          <th>Total</th>
+          <th>Status</th>
+          <th>View</th>
+        </tr>
+      </thead>
+
+      <tbody id="ordersBody">
+        <tr>
+          <td>1023</td>
+          <td>Hogan Q</td>
+          <td>Apr 8</td>
+          <td>3</td>
+          <td>$100</td>
+          <td>Pending</td>
+          <td><span class="view-btn">View</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</body>
+</html>

@@ -34,14 +34,14 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
   <div class="sidebar-wrapper">
     <nav class="mt-2">
       <!--begin::Sidebar Menu-->
-        <ul
-          class="nav sidebar-menu flex-column"
-          data-lte-toggle="treeview"
-          role="navigation"
-          aria-label="Main navigation"
-          data-accordion="false"
-          id="navigation"
-        >
+      <ul
+        class="nav sidebar-menu flex-column"
+        data-lte-toggle="treeview"
+        role="navigation"
+        aria-label="Main navigation"
+        data-accordion="false"
+        id="navigation"
+      >
           <!-- Dashboard -->
           <li class:list={["nav-item", mainPage === "dashboard" && "menu-open"]}>
             <a
@@ -110,7 +110,7 @@ const deploymentPath = depth === 0 ? './' : '../'.repeat(depth);
               <p>Discount</p>
             </a>
           </li>
-        </ul>
+      </ul>
       <!--end::Sidebar Menu-->
     </nav>
   </div>
