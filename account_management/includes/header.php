@@ -36,9 +36,12 @@ $basePath = '/CS3773-FinalProject/account_management';
 
     <?php if ($user): ?>
         <a href="<?= $basePath; ?>/account.php">My Account</a>
+
         <?php if (($user['user_role'] ?? '') === 'admin'): ?>
             <a href="<?= $basePath; ?>/admin/users.php">Admin Users</a>
+            <a href="<?= $basePath; ?>/admin/products.php">Admin Products</a>
         <?php endif; ?>
+
         <span>Signed in as <?= e($user['username']); ?> (<?= e($user['user_role']); ?>)</span>
         <a href="<?= $basePath; ?>/logout.php">Logout</a>
     <?php endif; ?>
