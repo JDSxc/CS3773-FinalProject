@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en" data-astro-cid-vx2vqajv>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Orders</title>
+
+    <!-- Styling -->
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        display: flex;
+      }
+      .sidebar[data-astro-cid-vx2vqajv] {
+        width: 220px;
+        background: #222;
+        color: #fff;
+        height: 100vh;
+        padding: 20px;
+      }
+      .sidebar[data-astro-cid-vx2vqajv] a[data-astro-cid-vx2vqajv] {
+        display: block;
+        color: #fff;
+        text-decoration: none;
+        margin: 10px 0;
+      }
+      .main[data-astro-cid-vx2vqajv] {
+        flex: 1;
+        padding: 20px;
+      }
+      .controls[data-astro-cid-vx2vqajv] {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+      input[data-astro-cid-vx2vqajv],
+      select[data-astro-cid-vx2vqajv] {
+        padding: 8px;
+        font-size: 14px;
+      }
+      table[data-astro-cid-vx2vqajv] {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+      }
+      th[data-astro-cid-vx2vqajv],
+      td[data-astro-cid-vx2vqajv] {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: left;
+      }
+      th[data-astro-cid-vx2vqajv] {
+        background: #f4f4f4;
+      }
+      .view-btn[data-astro-cid-vx2vqajv] {
+        color: #00f;
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+
+  <body data-astro-cid-vx2vqajv>
+    <!-- Sidebar -->
+    <div class="sidebar" data-astro-cid-vx2vqajv>
+      <h3 data-astro-cid-vx2vqajv>AdminLTE</h3>
+      <a href="./index3.html" data-astro-cid-vx2vqajv>Dashboard</a>
+      <a href="./orders.html" data-astro-cid-vx2vqajv><b data-astro-cid-vx2vqajv>Orders</b></a>
+      <a href="./products.html" data-astro-cid-vx2vqajv>Products</a>
+      <a href="./discounts.html" data-astro-cid-vx2vqajv>Discounts</a>
+      <a href="./customers.html" data-astro-cid-vx2vqajv>Customers</a>
+      <a href="./analytics.html" data-astro-cid-vx2vqajv>Analytics</a>
+      <a href="./finance.html" data-astro-cid-vx2vqajv>Finance</a>
+    </div>
+
+    <!-- Main content -->
+    <div class="main" data-astro-cid-vx2vqajv>
+      <h2 data-astro-cid-vx2vqajv>Orders</h2>
+
+      <!-- Search + filters -->
+      <div class="controls" data-astro-cid-vx2vqajv>
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="Search orders..."
+          data-astro-cid-vx2vqajv
+        />
+
+        <select id="statusFilter" data-astro-cid-vx2vqajv>
+          <option value="all" data-astro-cid-vx2vqajv>Status</option>
+          <option value="Pending" data-astro-cid-vx2vqajv>Pending</option>
+          <option value="Shipped" data-astro-cid-vx2vqajv>Shipped</option>
+          <option value="Completed" data-astro-cid-vx2vqajv>Completed</option>
+        </select>
+
+        <select id="sortBy" data-astro-cid-vx2vqajv>
+          <option value="none" data-astro-cid-vx2vqajv>Sort by</option>
+          <option value="date" data-astro-cid-vx2vqajv>Date</option>
+          <option value="total" data-astro-cid-vx2vqajv>Total</option>
+        </select>
+      </div>
+
+      <!-- Orders table -->
+      <table data-astro-cid-vx2vqajv>
+        <thead data-astro-cid-vx2vqajv>
+          <tr data-astro-cid-vx2vqajv>
+            <th data-astro-cid-vx2vqajv>ID</th>
+            <th data-astro-cid-vx2vqajv>Customer</th>
+            <th data-astro-cid-vx2vqajv>Date</th>
+            <th data-astro-cid-vx2vqajv>Items</th>
+            <th data-astro-cid-vx2vqajv>Total</th>
+            <th data-astro-cid-vx2vqajv>Status</th>
+            <th data-astro-cid-vx2vqajv>View</th>
+          </tr>
+        </thead>
+
+        <tbody id="ordersBody" data-astro-cid-vx2vqajv>
+          <tr data-astro-cid-vx2vqajv>
+            <td data-astro-cid-vx2vqajv>1023</td>
+            <td data-astro-cid-vx2vqajv>Hogan Q</td>
+            <td data-astro-cid-vx2vqajv>Apr 8</td>
+            <td data-astro-cid-vx2vqajv>3</td>
+            <td data-astro-cid-vx2vqajv>$100</td>
+            <td data-astro-cid-vx2vqajv>Pending</td>
+            <td data-astro-cid-vx2vqajv>
+              <span class="view-btn" data-astro-cid-vx2vqajv>View</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
