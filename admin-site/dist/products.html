@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>AdminLTE | Products</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+  <!-- AdminLTE -->
+  <link rel="stylesheet" href="./css/adminlte.css">
+</head>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./js/adminlte.js"></script>
+
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+
+<div class="app-wrapper">
+
+  <!-- HEADER -->
+  <nav class="app-header navbar navbar-expand bg-body">
+    <div class="container-fluid">
+
+      <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
+                <i class="bi bi-list"></i>
+              </a>
+            </li>
+            <li class="nav-item d-none d-md-block">
+              <a href="#" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item d-none d-md-block">
+              <a href="#" class="nav-link">Contact</a>
+            </li>
+          </ul>
+
+    </div>
+  </nav>
+
+  <!-- SIDEBAR -->
+  <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+    <!--begin::Sidebar Brand-->
+        <div class="sidebar-brand">
+          <!--begin::Brand Link-->
+          <a href="./index.html" class="brand-link">
+            <!--begin::Brand Image-->
+            <img
+              src="./assets/img/AdminLTELogo.png"
+              alt="AdminLTE Logo"
+              class="brand-image opacity-75 shadow"
+            />
+            <!--end::Brand Image-->
+            <!--begin::Brand Text-->
+            <span class="brand-text fw-light">Admin Panel</span>
+            <!--end::Brand Text-->
+          </a>
+          <!--end::Brand Link-->
+        </div>
+        <!--end::Sidebar Brand-->
+
+    <div class="sidebar-wrapper">
+      <nav class="mt-2">
+
+        <ul class="nav sidebar-menu flex-column">
+
+          <li class="nav-item">
+            <a href="./index3.html" class="nav-link">
+              <i class="nav-icon bi bi-speedometer"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="./orders.html" class="nav-link">
+              <i class="nav-icon bi bi-bag-fill"></i>
+              <p>Orders</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="./products.html" class="nav-link active">
+              <i class="nav-icon bi bi-box-seam"></i>
+              <p>Products</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="./customers.html" class="nav-link">
+              <i class="nav-icon bi bi-people-fill"></i>
+              <p>Customers</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="./discounts.html" class="nav-link">
+              <i class="nav-icon bi bi-tag-fill"></i>
+              <p>Discounts</p>
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="app-main">
+
+    <div class="app-content-header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-6">
+            <h3 class="mb-0">Products</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="app-content">
+      <div class="container-fluid">
+
+        <div class="card">
+
+          <div class="card-header">
+            <h3 class="card-title">Product List</h3>
+            <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addProductModal">
+              Add Product
+            </button>
+          </div>
+
+          <div class="card-body table-responsive">
+
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Product</th>
+                  <th>Price</th>
+                  <th>Stock</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Sample Product A</td>
+                  <td>$20</td>
+                  <td>120</td>
+                  <td><span class="badge bg-success">Active</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-warning">Edit</button>
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>2</td>
+                  <td>Sample Product B</td>
+                  <td>$45</td>
+                  <td>0</td>
+                  <td><span class="badge bg-danger">Out of Stock</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-warning">Edit</button>
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                  </td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+</div>
+<!-- ADD PRODUCT MODAL -->
+<div class="modal fade" id="addProductModal" tabindex="-1">
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Add Product</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <input class="form-control mb-2" placeholder="Product Name">
+        <input class="form-control mb-2" placeholder="Price">
+        <input class="form-control mb-2" placeholder="Stock">
+        <input type="file" class="form-control mb-2" accept="image/*">
+        <img id="preview" style="width:100%; max-height:200px; object-fit:cover; display:none;" />
+
+        <script>
+        document.querySelector('input[type="file"]').addEventListener('change', function (e) {
+          const file = e.target.files[0];
+
+          if (file) {
+            const reader = new FileReader();
+
+            reader.onload = function (event) {
+              const img = document.getElementById('preview');
+              img.src = event.target.result;
+              img.style.display = 'block';
+            };
+
+            reader.readAsDataURL(file);
+          }
+        });
+        </script>
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-success">Save Product</button>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script src="./js/adminlte.js"></script>
+</body>
+</html>

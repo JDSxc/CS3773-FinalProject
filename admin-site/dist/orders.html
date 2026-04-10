@@ -1,135 +1,244 @@
 <!doctype html>
-<html lang="en" data-astro-cid-vx2vqajv>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Orders</title>
+<html lang="en">
 
-    <!-- Styling -->
-    <link rel="stylesheet" href="./css/style.css" />
+<head>
+  <meta charset="utf-8" />
+  <title>AdminLTE | Orders</title>
 
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        display: flex;
-      }
-      .sidebar[data-astro-cid-vx2vqajv] {
-        width: 220px;
-        background: #222;
-        color: #fff;
-        height: 100vh;
-        padding: 20px;
-      }
-      .sidebar[data-astro-cid-vx2vqajv] a[data-astro-cid-vx2vqajv] {
-        display: block;
-        color: #fff;
-        text-decoration: none;
-        margin: 10px 0;
-      }
-      .main[data-astro-cid-vx2vqajv] {
-        flex: 1;
-        padding: 20px;
-      }
-      .controls[data-astro-cid-vx2vqajv] {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 15px;
-      }
-      input[data-astro-cid-vx2vqajv],
-      select[data-astro-cid-vx2vqajv] {
-        padding: 8px;
-        font-size: 14px;
-      }
-      table[data-astro-cid-vx2vqajv] {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 10px;
-      }
-      th[data-astro-cid-vx2vqajv],
-      td[data-astro-cid-vx2vqajv] {
-        border: 1px solid #ccc;
-        padding: 10px;
-        text-align: left;
-      }
-      th[data-astro-cid-vx2vqajv] {
-        background: #f4f4f4;
-      }
-      .view-btn[data-astro-cid-vx2vqajv] {
-        color: #00f;
-        cursor: pointer;
-        text-decoration: underline;
-      }
-    </style>
-  </head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <body data-astro-cid-vx2vqajv>
-    <!-- Sidebar -->
-    <div class="sidebar" data-astro-cid-vx2vqajv>
-      <h3 data-astro-cid-vx2vqajv>AdminLTE</h3>
-      <a href="./index3.html" data-astro-cid-vx2vqajv>Dashboard</a>
-      <a href="./orders.html" data-astro-cid-vx2vqajv><b data-astro-cid-vx2vqajv>Orders</b></a>
-      <a href="./products.html" data-astro-cid-vx2vqajv>Products</a>
-      <a href="./discounts.html" data-astro-cid-vx2vqajv>Discounts</a>
-      <a href="./customers.html" data-astro-cid-vx2vqajv>Customers</a>
-      <a href="./analytics.html" data-astro-cid-vx2vqajv>Analytics</a>
-      <a href="./finance.html" data-astro-cid-vx2vqajv>Finance</a>
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+  <!-- AdminLTE -->
+  <link rel="stylesheet" href="./css/adminlte.css">
+</head>
+
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+
+<div class="app-wrapper">
+
+  <!-- HEADER -->
+  <nav class="app-header navbar navbar-expand bg-body">
+    <div class="container-fluid">
+      <a class="nav-link" data-lte-toggle="sidebar" href="#">
+        <i class="bi bi-list"></i>
+      </a>
+    </div>
+  </nav>
+
+  <!-- SIDEBAR -->
+  <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+    <!--begin::Sidebar Brand-->
+        <div class="sidebar-brand">
+          <!--begin::Brand Link-->
+          <a href="./index.html" class="brand-link">
+            <!--begin::Brand Image-->
+            <img
+              src="./assets/img/AdminLTELogo.png"
+              alt="AdminLTE Logo"
+              class="brand-image opacity-75 shadow"
+            />
+            <!--end::Brand Image-->
+            <!--begin::Brand Text-->
+            <span class="brand-text fw-light">Admin Panel</span>
+            <!--end::Brand Text-->
+          </a>
+          <!--end::Brand Link-->
+        </div>
+        <!--end::Sidebar Brand-->
+    <div class="sidebar-wrapper">
+      <nav class="mt-2">
+        <ul class="nav sidebar-menu flex-column">
+
+          <li class="nav-item">
+            <a href="./index3.html" class="nav-link">
+              <i class="nav-icon bi bi-speedometer"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="./orders.html" class="nav-link active">
+              <i class="nav-icon bi bi-bag-fill"></i>
+              <p>Orders</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="./products.html" class="nav-link">
+              <i class="nav-icon bi bi-box-seam"></i>
+              <p>Products</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="./customers.html" class="nav-link">
+              <i class="nav-icon bi bi-people-fill"></i>
+              <p>Customers</p>
+            </a>
+          </li>
+
+          <!-- Discount -->
+            <li class="nav-item">
+              <a href="./discounts.html" class="nav-link">
+                <i class="nav-icon bi bi-tag-fill"></i>
+                <p>Discount</p>
+              </a>
+            </li>
+
+        </ul>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="app-main">
+
+    <div class="app-content-header">
+      <div class="container-fluid">
+        <h3>Orders</h3>
+      </div>
     </div>
 
-    <!-- Main content -->
-    <div class="main" data-astro-cid-vx2vqajv>
-      <h2 data-astro-cid-vx2vqajv>Orders</h2>
+    <div class="app-content">
+      <div class="container-fluid">
 
-      <!-- Search + filters -->
-      <div class="controls" data-astro-cid-vx2vqajv>
-        <input
-          id="searchInput"
-          type="text"
-          placeholder="Search orders..."
-          data-astro-cid-vx2vqajv
-        />
+        <!-- FILTER BAR -->
+        <div class="card mb-3">
+          <div class="card-body d-flex gap-2 flex-wrap">
 
-        <select id="statusFilter" data-astro-cid-vx2vqajv>
-          <option value="all" data-astro-cid-vx2vqajv>Status</option>
-          <option value="Pending" data-astro-cid-vx2vqajv>Pending</option>
-          <option value="Shipped" data-astro-cid-vx2vqajv>Shipped</option>
-          <option value="Completed" data-astro-cid-vx2vqajv>Completed</option>
-        </select>
+            <input id="searchInput" class="form-control" style="max-width:200px;" placeholder="Search customer...">
 
-        <select id="sortBy" data-astro-cid-vx2vqajv>
-          <option value="none" data-astro-cid-vx2vqajv>Sort by</option>
-          <option value="date" data-astro-cid-vx2vqajv>Date</option>
-          <option value="total" data-astro-cid-vx2vqajv>Total</option>
-        </select>
+            <select id="filterStatus" class="form-select" style="max-width:160px;">
+              <option value="all">All Orders</option>
+              <option value="current">Current</option>
+              <option value="history">History</option>
+            </select>
+
+            <select id="sortBy" class="form-select" style="max-width:200px;">
+              <option value="date">Sort by Date</option>
+              <option value="customer">Sort by Customer</option>
+              <option value="total">Sort by Total ($)</option>
+            </select>
+
+          </div>
+        </div>
+
+        <!-- CURRENT ORDERS -->
+        <div class="card mb-3">
+          <div class="card-header">
+            <h3 class="card-title">Current Orders</h3>
+          </div>
+
+          <div class="card-body table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Customer</th>
+                  <th>Date</th>
+                  <th>Total</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>1023</td>
+                  <td>Hogan Q</td>
+                  <td>2026-04-08</td>
+                  <td>$100</td>
+                  <td><span class="badge bg-warning">Pending</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#orderModal">
+                      View
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ORDER HISTORY -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Order History</h3>
+          </div>
+
+          <div class="card-body table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Customer</th>
+                  <th>Date</th>
+                  <th>Total</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>1010</td>
+                  <td>Sarah M</td>
+                  <td>2026-03-28</td>
+                  <td>$250</td>
+                  <td><span class="badge bg-success">Completed</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#orderModal">
+                      View
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ORDER MODAL -->
+<div class="modal fade" id="orderModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Order Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
-      <!-- Orders table -->
-      <table data-astro-cid-vx2vqajv>
-        <thead data-astro-cid-vx2vqajv>
-          <tr data-astro-cid-vx2vqajv>
-            <th data-astro-cid-vx2vqajv>ID</th>
-            <th data-astro-cid-vx2vqajv>Customer</th>
-            <th data-astro-cid-vx2vqajv>Date</th>
-            <th data-astro-cid-vx2vqajv>Items</th>
-            <th data-astro-cid-vx2vqajv>Total</th>
-            <th data-astro-cid-vx2vqajv>Status</th>
-            <th data-astro-cid-vx2vqajv>View</th>
-          </tr>
-        </thead>
+      <div class="modal-body">
+        <p><b>Customer:</b> Hogan Q</p>
+        <p><b>Date:</b> 2026-04-08</p>
+        <p><b>Total:</b> $100</p>
+        <p><b>Status:</b> Pending</p>
+        <hr>
+        <p><b>Items:</b></p>
+        <ul>
+          <li>Product A</li>
+          <li>Product B</li>
+        </ul>
+      </div>
 
-        <tbody id="ordersBody" data-astro-cid-vx2vqajv>
-          <tr data-astro-cid-vx2vqajv>
-            <td data-astro-cid-vx2vqajv>1023</td>
-            <td data-astro-cid-vx2vqajv>Hogan Q</td>
-            <td data-astro-cid-vx2vqajv>Apr 8</td>
-            <td data-astro-cid-vx2vqajv>3</td>
-            <td data-astro-cid-vx2vqajv>$100</td>
-            <td data-astro-cid-vx2vqajv>Pending</td>
-            <td data-astro-cid-vx2vqajv>
-              <span class="view-btn" data-astro-cid-vx2vqajv>View</span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
     </div>
-  </body>
+  </div>
+</div>
+
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./js/adminlte.js"></script>
+
+</body>
 </html>
