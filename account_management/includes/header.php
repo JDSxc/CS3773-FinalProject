@@ -3,47 +3,75 @@ require_once __DIR__ . '/auth.php';
 $user = currentUser();
 $basePath = '/CS3773-FinalProject/account_management';
 ?>
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= isset($pageTitle) ? e($pageTitle) : 'Account Management'; ?></title>
-    <style>
-        body { font-family: Arial, sans-serif; background:#f7f7fb; margin:0; color:#1f2937; }
-        nav { background:#111827; color:#fff; padding:14px 22px; display:flex; gap:16px; align-items:center; flex-wrap:wrap; }
-        nav a { color:#fff; text-decoration:none; }
-        .container { max-width:1000px; margin:30px auto; background:#fff; padding:24px; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,.08); }
-        input, select { width:100%; padding:10px; margin-top:6px; margin-bottom:14px; border:1px solid #d1d5db; border-radius:8px; box-sizing:border-box; }
-        button, .button { background:#2563eb; color:#fff; border:none; padding:10px 16px; border-radius:8px; cursor:pointer; text-decoration:none; display:inline-block; }
-        button.danger, .button.danger { background:#dc2626; }
-        .muted { color:#6b7280; }
-        .success { background:#ecfdf5; color:#065f46; padding:12px; border-radius:8px; margin-bottom:16px; }
-        .error { background:#fef2f2; color:#991b1b; padding:12px; border-radius:8px; margin-bottom:16px; }
-        table { width:100%; border-collapse:collapse; margin-top:20px; }
-        th, td { border:1px solid #e5e7eb; padding:10px; text-align:left; }
-        th { background:#f3f4f6; }
-        .row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-        @media (max-width: 700px) { .row { grid-template-columns:1fr; } }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><?= isset($pageTitle) ? e($pageTitle) : 'Admin'; ?></title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@4.0.0-rc2/dist/css/adminlte.min.css">
 </head>
-<body>
-<nav>
-    <?php if (!$user): ?>
-        <a href="<?= $basePath; ?>/login.php">Login</a>
-        <a href="<?= $basePath; ?>/register.php">Register</a>
-    <?php endif; ?>
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+<div class="app-wrapper">
 
-    <?php if ($user): ?>
-        <a href="<?= $basePath; ?>/account.php">My Account</a>
-
-        <?php if (($user['user_role'] ?? '') === 'admin'): ?>
-            <a href="<?= $basePath; ?>/admin/users.php">Admin Users</a>
-            <a href="<?= $basePath; ?>/admin/products.php">Admin Products</a>
+  <nav class="app-header navbar navbar-expand bg-body">
+    <div class="container-fluid">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
+            <i class="bi bi-list"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto">
+        <?php if ($user): ?>
+          <li class="nav-item">
+            <span class="nav-link">
+              <?= e($user['username']); ?> (<?= e($user['user_role']); ?>)
+            </span>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?= $basePath; ?>/logout.php">Logout</a>
+          </li>
         <?php endif; ?>
+      </ul>
+    </div>
+  </nav>
 
-        <span>Signed in as <?= e($user['username']); ?> (<?= e($user['user_role']); ?>)</span>
-        <a href="<?= $basePath; ?>/logout.php">Logout</a>
-    <?php endif; ?>
-</nav>
-<div class="container">
+  <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+    <div class="sidebar-brand">
+      <a href="<?= $basePath; ?>/admin/dashboard.php" class="brand-link">
+        <span class="brand-text fw-light">Admin Panel</span>
+      </a>
+    </div>
+    <div class="sidebar-wrapper">
+      <nav class="mt-2">
+        <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="navigation">
+          <li class="nav-item">
+            <a href="<?= $basePath; ?>/admin/dashboard.php" class="nav-link">
+              <i class="nav-icon bi bi-speedometer"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?= $basePath; ?>/admin/products.php" class="nav-link">
+              <i class="nav-icon bi bi-box-seam"></i>
+              <p>Products</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?= $basePath; ?>/admin/users.php" class="nav-link">
+              <i class="nav-icon bi bi-people-fill"></i>
+              <p>Users</p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+
+  <main class="app-main">
+    <div class="app-content">
+      <div class="container-fluid pt-3">
