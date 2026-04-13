@@ -11,7 +11,7 @@ $pageTitle = 'Admin - Discount Codes';
 $errors    = [];
 $success   = '';
 
-// --- Handle POST actions ---
+// handle post actions (create/update/delete)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'] ?? '';
 
@@ -91,14 +91,14 @@ require_once __DIR__ . '/../includes/header.php';
     <div class="success"><?= e($success); ?></div>
 <?php endif; ?>
 
-<!-- Create New Code -->
+<!-- Create new code -->
 <h2>Create New Discount Code</h2>
 <form method="POST">
     <input type="hidden" name="action" value="create">
     <div class="row">
         <div>
             <label>Code (e.g. SAVE10)</label>
-            <input type="text" name="code" placeholder="SUMMER25" style="text-transform:uppercase;" required>
+            <input type="text" name="code" placeholder="SUMMER26" style="text-transform:uppercase;" required>
         </div>
         <div>
             <label>Discount Percent (%)</label>
@@ -120,7 +120,7 @@ require_once __DIR__ . '/../includes/header.php';
 
 <hr style="margin:32px 0;">
 
-<!-- Existing Codes -->
+<!-- Existing codes -->
 <h2>Existing Codes (<?= count($codes); ?>)</h2>
 <?php if (!$codes): ?>
     <p class="muted">No discount codes yet.</p>

@@ -44,11 +44,11 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
 $orders = $stmt->fetchAll();
 
-// Stats
+// stats 
 $totalRevenue = array_sum(array_column($orders, 'total_amount'));
 $totalOrders  = count($orders);
 
-// Expanded order detail (for the detail row)
+// expanded order detail (for the detail row)
 $expandOrderId = (int) ($_GET['expand'] ?? 0);
 $expandedItems = [];
 if ($expandOrderId > 0) {
@@ -115,7 +115,7 @@ require_once __DIR__ . '/../includes/header.php';
     <?php endif; ?>
 </form>
 
-<!-- Orders Table -->
+<!-- Orders table -->
 <?php if (!$orders): ?>
     <p class="muted">No orders found<?= $search !== '' ? ' for "' . e($search) . '"' : ''; ?>.</p>
 <?php else: ?>

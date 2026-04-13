@@ -12,7 +12,7 @@ if (!isLoggedIn()) {
 requireAdmin();
 $pageTitle = 'Admin Dashboard';
 
-// counts
+// counts for dashboard stats
 $userCount      = (int) $pdo->query('SELECT COUNT(*) FROM users')->fetchColumn();
 $productCount   = (int) $pdo->query('SELECT COUNT(*) FROM product')->fetchColumn();
 $onSaleCount    = (int) $pdo->query('SELECT COUNT(*) FROM product WHERE is_on_sale = 1')->fetchColumn();
@@ -30,14 +30,14 @@ require_once __DIR__ . '/../includes/header.php';
 <div class="row" style="margin-bottom:20px;">
     <!-- Users -->
     <div style="border:1px solid #e5e7eb;padding:20px;border-radius:12px;">
-        <h2 style="margin-top:0;">👥 Users</h2>
+        <h2 style="margin-top:0;">Users</h2>
         <p><strong><?= $userCount; ?></strong> total users</p>
         <a class="button" href="<?= $basePath; ?>/admin/users.php">Manage Users</a>
     </div>
 
     <!-- Products -->
     <div style="border:1px solid #e5e7eb;padding:20px;border-radius:12px;">
-        <h2 style="margin-top:0;">📦 Products</h2>
+        <h2 style="margin-top:0;">Products</h2>
         <p><strong><?= $productCount; ?></strong> total &nbsp;|&nbsp; <strong><?= $onSaleCount; ?></strong> on sale &nbsp;|&nbsp; <strong><?= $outOfStock; ?></strong> out of stock</p>
         <a class="button" href="<?= $basePath; ?>/admin/products.php">Manage Products</a>
         <a class="button" href="<?= $basePath; ?>/admin/product_create.php" style="margin-left:8px;">+ Add Product</a>
@@ -47,7 +47,7 @@ require_once __DIR__ . '/../includes/header.php';
 <div class="row">
     <!-- Orders -->
     <div style="border:1px solid #e5e7eb;padding:20px;border-radius:12px;">
-        <h2 style="margin-top:0;">🛒 Orders</h2>
+        <h2 style="margin-top:0;">Orders</h2>
         <p><strong><?= $orderCount; ?></strong> total orders</p>
         <p><strong>$<?= number_format($totalRevenue, 2); ?></strong> total revenue</p>
         <a class="button" href="<?= $basePath; ?>/admin/orders.php">View All Orders</a>
@@ -55,7 +55,7 @@ require_once __DIR__ . '/../includes/header.php';
 
     <!-- Discounts -->
     <div style="border:1px solid #e5e7eb;padding:20px;border-radius:12px;">
-        <h2 style="margin-top:0;">🏷️ Discount Codes</h2>
+        <h2 style="margin-top:0;">Discount Codes</h2>
         <p><strong><?= $discountCount; ?></strong> codes &nbsp;|&nbsp; <strong><?= $activeDiscounts; ?></strong> currently active</p>
         <a class="button" href="<?= $basePath; ?>/admin/discounts.php">Manage Discounts</a>
     </div>
