@@ -58,4 +58,5 @@ require_once __DIR__ . '/includes/header.php';
 
     <button type="submit">Login</button>
 </form>
+<p>Don't have an account? <a href="register.php">Register here</a></p>
 <?php require_once __DIR__ . '/includes/footer.php'; ?>
